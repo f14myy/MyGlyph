@@ -14,4 +14,8 @@
     <string name="epilepsy_desc">Enables blinking of all glyphs (it will hurt your eyes)</string>
     <string name="speed">Speed</string>
     <string name="intensity">Intensity</string>
+    <string name="animation" translatable="false">Animation</string>
+    <string name="animation_desc">Various glyph animations (will be updated in the future)</string>
+    <string name="help">Suggestions for new features are actively accepted! Message me on Telegram: @username7052 (I answer in any language)</string>
+    <string name="reset">Reset</string>
 </resources>

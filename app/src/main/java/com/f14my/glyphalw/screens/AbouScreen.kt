@@ -70,7 +70,7 @@ fun AboutScreen() {
                 )
             }
             Button(onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/f14my/myglyph"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/f14myy/MyGlyph"))
                 context.startActivity(intent)
             }, modifier = Modifier.padding(start = 16.dp)) {
                 Icon(

@@ -132,7 +132,7 @@ fun GlyphControlScreen() {
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Сбросить",
+            Text(text = stringResource(id = R.string.reset),
                 style = MaterialTheme.typography.bodyMedium.copy(fontFamily = Space, fontWeight = FontWeight.Bold))
         }
     }

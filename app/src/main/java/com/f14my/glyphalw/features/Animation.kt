@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.f14my.glyphalw.GlyphManager
@@ -18,10 +19,11 @@ import com.f14my.glyphalw.ui.theme.NType82
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlin.math.roundToInt
+import com.f14my.glyphalw.R
 
 enum class AnimationEffect(val displayName: String) {
-    SMOOTH("Плавное переливание"),
-    GLITCH("Глитч-эффект")
+    SMOOTH("SMOTH"),
+    GLITCH("GLITCH")
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -107,11 +109,11 @@ fun AnimationCard() {
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = "Анимации",
+                        text = stringResource(id = R.string.animation),
                         style = MaterialTheme.typography.titleLarge.copy(fontFamily = NType82, fontWeight = FontWeight.W500),
                     )
                     Text(
-                        text = "Включает и настраивает эффекты глифов",
+                        text = stringResource(id = R.string.animation_desc),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -158,12 +160,12 @@ fun AnimationCard() {
                         }
                     }
 
-                    val speedLabel = if (selectedEffect == AnimationEffect.GLITCH) "Частота" else "Скорость"
+                    val speedLabel = stringResource(id = R.string.speed)
 
                     Text(speedLabel, style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp))
                     Slider(value = speed, onValueChange = { speed = it }, modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp))
 
-                    Text("Яркость", style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp))
+                    Text(stringResource(id = R.string.bringes), style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp))
                     Slider(value = brightness, onValueChange = { brightness = it }, modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp))
                 }
             }

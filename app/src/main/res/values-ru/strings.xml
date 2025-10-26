@@ -8,4 +8,7 @@
     <string name="epilepsy_desc">Включает мигание всех глифов ( глазам будет больно )</string>
     <string name="speed">Скорость</string>
     <string name="intensity">Интенсивность</string>
+    <string name="animation_desc">Различные анимации глифов ( в дальнейшем будут пополняться )</string>
+    <string name="help">Активно принимаються предложения для новый функций! Пишите мне в телеграм: @username7052 ( отвечаю на любом языке )</string>
+    <string name="reset">Сбросить</string>
 </resources>
