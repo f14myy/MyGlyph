@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyGlyph</string>
+    <string name="about">Получите полный контроль и расширенные возможности над glyph interface.</string>
+    <string name="glyph_control_desc">Ручная настройка свечения и яркости каждого glyph.</string>
+    <string name="glyph_tools_desc">Разные инструменты и полезные утилиты для glyph.</string>
+    <string name="bringes">Яркость</string>
+    <string name="epilepsy_desc">Включает мигание всех глифов ( глазам будет больно )</string>
+    <string name="speed">Скорость</string>
+    <string name="intensity">Интенсивность</string>
+</resources>

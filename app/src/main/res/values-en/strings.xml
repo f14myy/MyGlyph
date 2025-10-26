@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyGlyph</string>
+    <string name="about">Get full control and advanced features over the glyph interface.</string>
+    <string name="glyph_control_desc">" Manually adjust the glow and brightness of each glyph"</string>
+    <string name="glyph_tools_desc">Various tools and useful utilities for glyph.</string>
+    <string name="bringes">Bringes</string>
+    <string name="epilepsy_desc">Enables blinking of all glyphs (it will hurt your eyes)</string>
+    <string name="speed">Speed</string>
+    <string name="intensity">Intensity</string>
+</resources>

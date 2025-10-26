@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MyGlyph</string>
+    <string name="app_version" translatable="false">0.5 beta</string>
+    <string name="about">Get full control and advanced features over the glyph interface.</string>
+    <string name="telegram" translatable="false">Telegram</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="made_by" translatable="false">Made by f14my</string>
+    <string name="glyph_control" translatable="false">Glyph control</string>
+    <string name="glyph_control_desc">Manually adjust the glow and brightness of each glyph.</string>
+    <string name="glyph_tools" translatable="false">Glyph tools</string>
+    <string name="glyph_tools_desc">Various tools and useful utilities for glyph.</string>
+    <string name="bringes">Bringes</string>
+    <string name="epilepsy" translatable="false">Epilepsy</string>
+    <string name="epilepsy_desc">Enables blinking of all glyphs (it will hurt your eyes)</string>
+    <string name="speed">Speed</string>
+    <string name="intensity">Intensity</string>
+</resources>
