@@ -41,11 +41,11 @@ fun AnimationCard() {
             when (selectedEffect) {
                 AnimationEffect.SMOOTH -> {
                     val glyphOrder = listOf(
-                        GlyphManager.Glyph.Line,
-                        GlyphManager.Glyph.Main,
-                        GlyphManager.Glyph.Diagonal,
-                        GlyphManager.Glyph.Dot,
-                        GlyphManager.Glyph.Camera
+                        GlyphManager.Light.Line,
+                        GlyphManager.Light.Main,
+                        GlyphManager.Light.Diagonal,
+                        GlyphManager.Light.Dot,
+                        GlyphManager.Light.Camera
                     )
                     val cycleDuration = (1000 - (speed * 900)).toLong()
                     val fadeDuration = cycleDuration / 3
@@ -76,7 +76,7 @@ fun AnimationCard() {
                     }
                 }
                 AnimationEffect.GLITCH -> {
-                    val glyphs = GlyphManager.Glyph.values().toList()
+                    val glyphs = GlyphManager.Light.values().toList()
                     val baseDelay = (150 - (speed * 130)).toLong().coerceAtLeast(10)
                     while (isActive) {
                         val randomGlyph = glyphs.random()

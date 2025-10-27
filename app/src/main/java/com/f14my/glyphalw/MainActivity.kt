@@ -56,10 +56,10 @@ fun MainAppScreen() {
                     NavigationBarItem(
                         icon = { Icon(screen.icon, contentDescription = screen.label) },
                         label = { Text(screen.label) },
-
+                        // 2. "Выбранный" элемент теперь зависит от текущей страницы пейджера
                         selected = pagerState.currentPage == index,
                         onClick = {
-
+                            // 3. При клике плавно прокручиваем пейджер на нужную страницу
                             scope.launch {
                                 pagerState.animateScrollToPage(index)
                             }
@@ -69,6 +69,7 @@ fun MainAppScreen() {
             }
         }
     ) { innerPadding ->
+        // 4. HorizontalPager заменяет NavHost для создания эффекта свайпа
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.padding(innerPadding)

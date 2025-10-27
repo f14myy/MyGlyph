@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.f14my.glyphalw.R
-//import com.f14my.glyphalw.features.AnimationCard
+import com.f14my.glyphalw.features.AnimationCard
 import com.f14my.glyphalw.features.EpilepsyCard
 import com.f14my.glyphalw.ui.theme.NDot57
 
@@ -44,7 +44,7 @@ fun GlyphToolsScreen() {
         
         Spacer(modifier = Modifier.height(16.dp))
 
-        //AnimationCard()
+        AnimationCard()
 
         Spacer(modifier = Modifier.height(32.dp))
 
