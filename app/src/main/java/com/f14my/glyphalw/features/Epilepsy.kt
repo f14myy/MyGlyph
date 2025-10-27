@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -29,8 +28,8 @@ import kotlin.math.roundToInt
 @Composable
 fun EpilepsyCard() {
     var isBlinkingEnabled by remember { mutableStateOf(false) }
-    var blinkIntensity by remember { mutableStateOf(0.5f) }
-    var blinkBrightness by remember { mutableStateOf(1.0f) }
+    var blinkIntensity by remember { mutableFloatStateOf(0.5f) }
+    var blinkBrightness by remember { mutableFloatStateOf(1.0f) }
 
     if (isBlinkingEnabled) {
         LaunchedEffect(isBlinkingEnabled, blinkIntensity, blinkBrightness) {
@@ -38,8 +37,8 @@ fun EpilepsyCard() {
             val brightnessInt = (blinkBrightness * GlyphManager.MaxBrightness).roundToInt()
 
             while (isActive) {
-                GlyphManager.Light.values().forEach { light ->
-                    GlyphManager.setLightBrightness(light, brightnessInt)
+                GlyphManager.Glyph.entries.forEach { glyph ->
+                    GlyphManager.setLightBrightness(glyph, brightnessInt)
                 }
                 delay(delayMillis)
                 GlyphManager.turnAllOff()

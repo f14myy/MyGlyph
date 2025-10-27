@@ -34,8 +34,8 @@ fun GlyphControlScreen() {
     val scope = rememberCoroutineScope()
 
     val glyphStates = remember {
-        mutableStateMapOf<GlyphManager.Light, GlyphState>().apply {
-            GlyphManager.Light.values().forEach {
+        mutableStateMapOf<GlyphManager.Glyph, GlyphState>().apply {
+            GlyphManager.Glyph.values().forEach {
                 put(it, GlyphState())
             }
         }
@@ -58,7 +58,7 @@ fun GlyphControlScreen() {
         )
         Spacer(modifier = Modifier.height(24.dp))
 
-        GlyphManager.Light.values().forEach { light ->
+        GlyphManager.Glyph.values().forEach { light ->
             val state = glyphStates.getValue(light)
             Card(
                 modifier = Modifier.fillMaxWidth(),
@@ -118,15 +118,15 @@ fun GlyphControlScreen() {
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(16.dp)) // Add space between cards
+            Spacer(modifier = Modifier.height(16.dp))
         }
-        Spacer(modifier = Modifier.height(16.dp)) // Adjust spacing before the button
+        Spacer(modifier = Modifier.height(16.dp))
         OutlinedButton(
             onClick = {
                 scope.launch {
                     GlyphManager.turnAllOff()
                 }
-                GlyphManager.Light.values().forEach {
+                GlyphManager.Glyph.values().forEach {
                     glyphStates[it] = GlyphState()
                 }
             },
