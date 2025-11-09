@@ -7,13 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.f14my.glyphalw"
+    namespace = "com.f14my.myglyph"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.f14my.glyphalw"
+        applicationId = "com.f14my.myglyph"
         minSdk = 31
         targetSdk = 36
         versionCode = 1

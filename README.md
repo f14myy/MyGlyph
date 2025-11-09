@@ -1,31 +1,36 @@
-# MyGlyph
+# MyGlyph v1.0 - Release Notes:
 
-An app that allows you to manually customize your glyph interface and also features convenient and beautiful **glyph tools**.
+## What's New in Version 1.0
 
----
+### New Features
+- Quick Brightness Presets: One-tap access to 25%, 50%, 75%, and 100% brightness presets for all glyphs
+- All On / All Off Controls: Quickly enable or disable all glyphs at once
+- Real-time Brightness Display: See brightness percentage and absolute values (0-4095) in real-time
+- Breathing Effect: New smooth breathing effect for all glyphs with adjustable speed and brightness
+- Redesigned interface
 
-> [!CAUTION]
-> **ROOT ACCESS REQUIRED!**
->
-> The app will not function without superuser (Root) privileges. You grant access at your own risk.
+### Technical Improvements
+- Optimized animations and transitions
+- Better state management for glyph controls
 
-> [!IMPORTANT]
-> **NOTHING PHONE (1) ONLY**
->
-> Currently, the app officially supports **Nothing Phone (1)** only. Support for other devices (Phone (2), etc.) is in development.
+## Installation
+1. Download the APK from the releases page
+2. Enable installation from unknown sources
+3. Install the app
+4. Grant root permissions when prompted
 
----
+## Requirements
+- Android 12 (API 31) or higher
+- Root access
+- Nothing Phone (compatible with Glyph interface)
 
-## 📸 Screenshots
+## Known Issues
+- None reported for this release
 
-https://imgur.com/a/7IaBdZc
+## Credits
+Made by f14my
 
-## 📋 Requirements
-
-* **Device:** Nothing Phone (1)
-* **OS:** Android 12+
-* **Permissions:** **Root access** (e.g., via Magisk)
-
-
-## 💬 Suggestions for new features are actively accepted! Message me on Telegram: @username7052
+## Links
+- Telegram: @username7052
+- GitHub: https://github.com/f14myy/MyGlyph
 

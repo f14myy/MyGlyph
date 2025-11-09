@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MyGlyph</string>
-    <string name="app_version" translatable="false">0.5 beta</string>
+    <string name="app_version" translatable="false">1.0</string>
     <string name="about">Get full control and advanced features over the glyph interface.</string>
     <string name="telegram" translatable="false">Telegram</string>
     <string name="github" translatable="false">GitHub</string>
@@ -9,7 +9,7 @@
     <string name="glyph_control_desc">Manually adjust the glow and brightness of each glyph.</string>
     <string name="glyph_tools" translatable="false">Glyph tools</string>
     <string name="glyph_tools_desc">Various tools and useful utilities for glyph.</string>
-    <string name="bringes">Bringes</string>
+    <string name="bringes">Brightness</string>
     <string name="epilepsy" translatable="false">Epilepsy</string>
     <string name="epilepsy_desc">Enables blinking of all glyphs (it will hurt your eyes)</string>
     <string name="speed">Speed</string>
@@ -17,5 +17,15 @@
     <string name="animation" translatable="false">Animation</string>
     <string name="animation_desc">Various glyph animations (will be updated in the future)</string>
     <string name="help">Suggestions for new features are actively accepted! Message me on Telegram: @username7052 (I answer in any language)</string>
-    <string name="reset">Reset</string>
+    <string name="reset">All Off</string>
+    <string name="all_on">All On</string>
+    <string name="brightness_value">Brightness</string>
+    <string name="percentage">%</string>
+    <string name="features_title">New in 1.0</string>
+    <string name="feature_1">Quick brightness presets (25%, 50%, 75%, 100%)</string>
+    <string name="feature_2">Real-time brightness display with percentage</string>
+    <string name="feature_3">All On / All Off quick controls</string>
+    <string name="feature_4">Breathing effect for smooth glow transitions</string>
+    <string name="breathing_effect">Breathing</string>
+    <string name="breathing_desc">Smooth breathing effect for all glyphs</string>
 </resources>
