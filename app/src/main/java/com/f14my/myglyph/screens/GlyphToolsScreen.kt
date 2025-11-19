@@ -34,9 +34,10 @@ fun GlyphToolsScreen() {
             text = stringResource(id = R.string.glyph_tools),
             style = MaterialTheme.typography.headlineLarge.copy(fontFamily = NDot57, fontWeight = FontWeight.W500)
         )
+        Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = stringResource(id = R.string.glyph_tools_desc),
-            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.W400),
+            style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.W400),
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Spacer(modifier = Modifier.height(24.dp))

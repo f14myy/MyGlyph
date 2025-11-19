@@ -17,26 +17,38 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.f14my.myglyph.R
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import com.f14my.myglyph.screens.AboutScreen
 import com.f14my.myglyph.screens.GlyphControlScreen
 import com.f14my.myglyph.screens.GlyphToolsScreen
 import com.f14my.myglyph.ui.theme.GlyphalwTheme
+import com.f14my.myglyph.ui.theme.LocalThemePreferences
+import com.f14my.myglyph.ui.theme.ThemeMode
+import com.f14my.myglyph.ui.theme.ThemePreferences
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        val themePreferences = ThemePreferences(applicationContext)
 
         setContent {
-            GlyphalwTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MainAppScreen()
+            val themeMode by themePreferences.themeModeFlow.collectAsState(initial = ThemeMode.DARK)
+            
+            CompositionLocalProvider(LocalThemePreferences provides themePreferences) {
+                GlyphalwTheme(themeMode = themeMode) {
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        MainAppScreen()
+                    }
                 }
             }
         }

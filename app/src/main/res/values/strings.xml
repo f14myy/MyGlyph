@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MyGlyph</string>
-    <string name="app_version" translatable="false">1.0</string>
+    <string name="app_version" translatable="false">1.2 // made by f14my</string>
     <string name="about">Get full control and advanced features over the glyph interface.</string>
     <string name="telegram" translatable="false">Telegram</string>
     <string name="github" translatable="false">GitHub</string>
@@ -21,11 +21,11 @@
     <string name="all_on">All On</string>
     <string name="brightness_value">Brightness</string>
     <string name="percentage">%</string>
-    <string name="features_title">New in 1.0</string>
-    <string name="feature_1">Quick brightness presets (25%, 50%, 75%, 100%)</string>
-    <string name="feature_2">Real-time brightness display with percentage</string>
-    <string name="feature_3">All On / All Off quick controls</string>
-    <string name="feature_4">Breathing effect for smooth glow transitions</string>
+    <string name="features_title">New in 1.2</string>
+    <string name="feature_1">-> Nothing OS design with monochrome palette and red accents</string>
+    <string name="feature_2">-> Quick Settings Tiles for fast access to glyph functions</string>
+    <string name="feature_3">-> Theme switcher (System/Light/Dark) in About section</string>
+    <string name="feature_4">-> Improved typography with Nothing fonts (NDot57, NType82)</string>
     <string name="breathing_effect">Breathing</string>
     <string name="breathing_desc">Smooth breathing effect for all glyphs</string>
 </resources>

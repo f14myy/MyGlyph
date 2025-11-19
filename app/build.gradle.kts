@@ -16,8 +16,8 @@ android {
         applicationId = "com.f14my.myglyph"
         minSdk = 31
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,6 +45,7 @@ android {
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("com.github.topjohnwu.libsu:core:6.0.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("com.materialkolor:material-color-utilities:1.5.0")

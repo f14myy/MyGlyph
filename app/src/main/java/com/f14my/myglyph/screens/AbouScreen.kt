@@ -18,11 +18,23 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -32,9 +44,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.f14my.myglyph.R
+import com.f14my.myglyph.ui.theme.LocalThemePreferences
 import com.f14my.myglyph.ui.theme.NDot57
 import com.f14my.myglyph.ui.theme.NType82
 import com.f14my.myglyph.ui.theme.Space
+import com.f14my.myglyph.ui.theme.ThemeMode
+import kotlinx.coroutines.launch
 
 @Composable
 fun AboutScreen() {
@@ -56,6 +71,7 @@ fun AboutScreen() {
                 text = stringResource(id = R.string.app_name),
                 style = MaterialTheme.typography.displaySmall.copy(fontFamily = NDot57)
             )
+            Spacer(modifier = Modifier.size(8.dp))
             Text(
                 text = stringResource(id = R.string.app_version),
                 style = MaterialTheme.typography.titleMedium.copy(
@@ -64,16 +80,7 @@ fun AboutScreen() {
                 ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = stringResource(id = R.string.made_by),
-                style = MaterialTheme.typography.bodyMedium.copy(
-                    fontFamily = NType82,
-                    fontWeight = FontWeight.W400
-                ),
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+
         }
         
         Text(
@@ -82,6 +89,9 @@ fun AboutScreen() {
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
+        
+        // Переключатель темы
+        ThemeSwitcherCard()
         
         OutlinedCard(
             modifier = Modifier.fillMaxWidth()
@@ -98,21 +108,25 @@ fun AboutScreen() {
                     )
                 )
                 Divider()
+                Spacer(modifier = Modifier.size(2.dp))
                 Text(
                     text = stringResource(id = R.string.feature_1),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
+                Spacer(modifier = Modifier.size(2.dp))
                 Text(
                     text = stringResource(id = R.string.feature_2),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
+                Spacer(modifier = Modifier.size(2.dp))
                 Text(
                     text = stringResource(id = R.string.feature_3),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
+                Spacer(modifier = Modifier.size(2.dp))
                 Text(
                     text = stringResource(id = R.string.feature_4),
                     style = MaterialTheme.typography.bodySmall,
@@ -162,5 +176,126 @@ fun AboutScreen() {
             }
         }
         Spacer(modifier = Modifier.size(8.dp))
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ThemeSwitcherCard() {
+    val themePreferences = LocalThemePreferences.current
+    val scope = rememberCoroutineScope()
+    var currentThemeMode by remember { mutableStateOf(ThemeMode.DARK) }
+    var isDropdownExpanded by remember { mutableStateOf(false) }
+    
+    LaunchedEffect(Unit) {
+        themePreferences.themeModeFlow.collect { mode ->
+            currentThemeMode = mode
+        }
+    }
+    
+    val themeModeLabels = mapOf(
+        ThemeMode.SYSTEM to "Системная",
+        ThemeMode.LIGHT to "Светлая",
+        ThemeMode.DARK to "Темная"
+    )
+    
+    OutlinedCard(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Text(
+                text = "Тема приложения",
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontFamily = NType82,
+                    fontWeight = FontWeight.W500
+                )
+            )
+            
+            ExposedDropdownMenuBox(
+                expanded = isDropdownExpanded,
+                onExpandedChange = { isDropdownExpanded = it },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                OutlinedTextField(
+                    value = themeModeLabels[currentThemeMode] ?: "Темная",
+                    onValueChange = {},
+                    readOnly = true,
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                        fontFamily = NType82
+                    ),
+                    trailingIcon = { 
+                        ExposedDropdownMenuDefaults.TrailingIcon(expanded = isDropdownExpanded) 
+                    },
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                        focusedTextColor = MaterialTheme.colorScheme.onSurface
+                    ),
+                    modifier = Modifier
+                        .menuAnchor()
+                        .fillMaxWidth()
+                )
+                
+                ExposedDropdownMenu(
+                    expanded = isDropdownExpanded,
+                    onDismissRequest = { isDropdownExpanded = false }
+                ) {
+                    themeModeLabels.forEach { (mode, label) ->
+                        DropdownMenuItem(
+                            text = { 
+                                Text(
+                                    text = label,
+                                    style = MaterialTheme.typography.bodyMedium.copy(
+                                        fontFamily = NType82
+                                    )
+                                ) 
+                            },
+                            onClick = {
+                                scope.launch {
+                                    themePreferences.setThemeMode(mode)
+                                }
+                                isDropdownExpanded = false
+                            },
+                            contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ThemeModeButton(
+    text: String,
+    isSelected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = if (isSelected) {
+                MaterialTheme.colorScheme.primary
+            } else {
+                MaterialTheme.colorScheme.surfaceVariant
+            },
+            contentColor = if (isSelected) {
+                MaterialTheme.colorScheme.onPrimary
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            }
+        )
+    ) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.labelMedium.copy(
+                fontFamily = NType82,
+                fontWeight = FontWeight.W500
+            )
+        )
     }
 }

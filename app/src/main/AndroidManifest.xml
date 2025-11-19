@@ -22,6 +22,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Quick Settings Tiles -->
+        <service
+            android:name=".quicktile.BreathingTile"
+            android:exported="true"
+            android:icon="@drawable/ic_breathing"
+            android:label="Breathing"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        
+        <service
+            android:name=".quicktile.EpilepsyTile"
+            android:exported="true"
+            android:icon="@drawable/ic_epilepsy"
+            android:label="Epilepsy"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        
+        <service
+            android:name=".quicktile.AnimationTile"
+            android:exported="true"
+            android:icon="@drawable/ic_animation"
+            android:label="Animation"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        
+        <service
+            android:name=".quicktile.TorchTile"
+            android:exported="true"
+            android:icon="@drawable/ic_torch"
+            android:label="Glyph Torch"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

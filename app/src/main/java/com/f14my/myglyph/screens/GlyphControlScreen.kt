@@ -60,12 +60,14 @@ fun GlyphControlScreen() {
             text = stringResource(id = R.string.glyph_control),
             style = MaterialTheme.typography.headlineLarge.copy(fontFamily = NDot57, fontWeight = FontWeight.W500)
         )
+        Spacer(modifier = Modifier.height(16.dp))
+
         Text(
             text = stringResource(id = R.string.glyph_control_desc),
             style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.W400),
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         
         QuickPresetsCard()
         
@@ -98,7 +100,9 @@ fun GlyphControlScreen() {
                                     fontWeight = FontWeight.W500
                                 )
                             )
+                            Spacer(modifier = Modifier.height(4.dp))
                             if (state.isEnabled) {
+                                Spacer(modifier = Modifier.height(4.dp))
                                 Text(
                                     text = "${(state.brightness * 100).roundToInt()}%",
                                     style = MaterialTheme.typography.bodySmall,
@@ -164,7 +168,7 @@ fun GlyphControlScreen() {
             Spacer(modifier = Modifier.height(8.dp))
         }
         Spacer(modifier = Modifier.height(8.dp))
-        
+        Spacer(modifier = Modifier.height(12.dp))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -185,7 +189,8 @@ fun GlyphControlScreen() {
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontFamily = NType82, 
                         fontWeight = FontWeight.W500
-                    )
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
             
@@ -205,7 +210,8 @@ fun GlyphControlScreen() {
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontFamily = NType82, 
                         fontWeight = FontWeight.W500
-                    )
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }

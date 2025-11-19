@@ -14,47 +14,88 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-// Эти схемы теперь будут использоваться только если динамическая тема выключена
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+// Nothing OS стиль - темная тема с красными акцентами
+private val NothingDarkColorScheme = darkColorScheme(
+    primary = NothingRed,
+    onPrimary = NothingWhite,
+    primaryContainer = NothingDarkGray,
+    onPrimaryContainer = NothingWhite,
+    
+    secondary = NothingGray,
+    onSecondary = NothingWhite,
+    secondaryContainer = NothingDarkGray,
+    onSecondaryContainer = NothingLightGray,
+    
+    tertiary = NothingRed,
+    onTertiary = NothingWhite,
+    
+    background = NothingBlack,
+    onBackground = NothingWhite,
+    
+    surface = NothingBlack,
+    onSurface = NothingWhite,
+    surfaceVariant = NothingGray,
+    onSurfaceVariant = NothingLightGray,
+    
+    outline = NothingGray,
+    outlineVariant = NothingDarkGray,
+    
+    error = NothingRed,
+    onError = NothingWhite
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+// Светлая тема (на случай если понадобится)
+private val NothingLightColorScheme = lightColorScheme(
+    primary = NothingRed,
+    onPrimary = NothingWhite,
+    primaryContainer = NothingLightGray,
+    onPrimaryContainer = NothingBlack,
+    
+    secondary = NothingLightGray,
+    onSecondary = NothingBlack,
+    secondaryContainer = NothingLightGray,
+    onSecondaryContainer = NothingBlack,
+    
+    tertiary = NothingRed,
+    onTertiary = NothingWhite,
+    
+    background = NothingWhite,
+    onBackground = NothingBlack,
+    
+    surface = NothingWhite,
+    onSurface = NothingBlack,
+    surfaceVariant = NothingLightGray,
+    onSurfaceVariant = NothingGray,
+    
+    outline = NothingGray,
+    outlineVariant = NothingLightGray,
+    
+    error = NothingRed,
+    onError = NothingWhite
 )
 
 @Composable
 fun GlyphalwTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color включен по умолчанию на Android 12+
-    dynamicColor: Boolean = true,
+    themeMode: ThemeMode = ThemeMode.DARK,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        // 2. Логика для создания динамической expressive-схемы
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) {
-                // Сначала получаем стандартную динамическую схему, затем конвертируем в expressive
-                dynamicDarkColorScheme(context)
-            } else {
-                dynamicLightColorScheme(context)
-            }
-        }
-        // 3. Резервные статические схемы, если динамическая тема недоступна или отключена
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    val isDarkTheme = when (themeMode) {
+        ThemeMode.SYSTEM -> isSystemInDarkTheme()
+        ThemeMode.LIGHT -> false
+        ThemeMode.DARK -> true
+    }
+    
+    val colorScheme = if (isDarkTheme) {
+        NothingDarkColorScheme
+    } else {
+        NothingLightColorScheme
     }
 
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !isDarkTheme
         }
     }
 

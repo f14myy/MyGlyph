@@ -91,7 +91,8 @@ fun PresetButton(
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontFamily = NType82,
                     fontWeight = FontWeight.W500
-                )
+                ),
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }

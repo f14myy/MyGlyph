@@ -1,36 +1,47 @@
-# MyGlyph v1.0 - Release Notes:
+# MyGlyph 1.2
 
-## What's New in Version 1.0
+Full control over glyphs.
 
-### New Features
-- Quick Brightness Presets: One-tap access to 25%, 50%, 75%, and 100% brightness presets for all glyphs
-- All On / All Off Controls: Quickly enable or disable all glyphs at once
-- Real-time Brightness Display: See brightness percentage and absolute values (0-4095) in real-time
-- Breathing Effect: New smooth breathing effect for all glyphs with adjustable speed and brightness
-- Redesigned interface
+### New in 1.2
+- ✨ Complete Nothing OS design overhaul
+- 🔲 Added 4 Quick Settings Tiles
+- 🎨 Theme switcher (System/Light/Dark)
+- 📝 Nothing typography integration (NDot57, NType82)
+- 🔧 Improved UI spacing and readability
+- 💾 DataStore implementation for preferences
 
-### Technical Improvements
-- Optimized animations and transitions
-- Better state management for glyph controls
+## 📋 Requirements
 
-## Installation
-1. Download the APK from the releases page
-2. Enable installation from unknown sources
-3. Install the app
+- **Device**: Nothing Phone (1)
+- **Android**: 12 (API 31) or higher
+- **Root Access**: Required for system-level glyph control
+- **Storage**: ~10 MB
+
+## 🚀 Installation
+
+1. Download the latest APK from [Releases](https://github.com/f14myy/MyGlyph/releases)
+2. Enable "Install from Unknown Sources" in your device settings
+3. Install the APK
 4. Grant root permissions when prompted
+5. Enjoy full control of your Glyphs!
 
-## Requirements
-- Android 12 (API 31) or higher
-- Root access
-- Nothing Phone (compatible with Glyph interface)
 
-## Known Issues
-- None reported for this release
+## Glyph Control Mechanism
+MyGlyph directly controls the Glyph Interface by writing to system LED brightness files:
+```
+/sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/
+```
 
-## Credits
-Made by f14my
+This low-level access requires root permissions and provides precise control over each individual glyph.
 
-## Links
-- Telegram: @username7052
-- GitHub: https://github.com/f14myy/MyGlyph
+
+## 🤝 Contributing
+
+Suggestions for new features are actively welcomed! Feel free to:
+- Open an issue on GitHub
+- Submit a pull request
+- Contact me on Telegram: [@username7052](https://t.me/username7052)
+
+I respond in any language!
+
 
