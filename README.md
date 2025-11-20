@@ -4,7 +4,7 @@ Full control over glyphs.
 
 ### New in 1.2
 - ✨ Complete Nothing OS design overhaul
-- 🔲 Added 4 Quick Settings Tiles
+- 🔲 Added 4 Quick Settings Tiles (in the control center, Now you have 5 flashlight buttons)
 - 🎨 Theme switcher (System/Light/Dark)
 - 📝 Nothing typography integration (NDot57, NType82)
 - 🔧 Improved UI spacing and readability
