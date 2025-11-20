@@ -35,11 +35,9 @@ MyGlyph directly controls the Glyph Interface by writing to system LED brightnes
 This low-level access requires root permissions and provides precise control over each individual glyph.
 
 
-## 🤝 Contributing
 
 Suggestions for new features are actively welcomed! Feel free to:
-- Open an issue on GitHub
-- Submit a pull request
+
 - Contact me on Telegram: [@username7052](https://t.me/username7052)
 
 I respond in any language!
