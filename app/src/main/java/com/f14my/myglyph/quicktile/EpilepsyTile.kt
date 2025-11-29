@@ -50,7 +50,7 @@ class EpilepsyTile : TileService() {
         job?.cancel()
         job = CoroutineScope(Dispatchers.IO).launch {
             // Простая реализация epilepsy эффекта
-            val delayMillis = 200L
+            val delayMillis = 100L
             val brightnessInt = GlyphManager.MaxBrightness
             
             while (GlyphTilePreferences.isEpilepsyEnabled(applicationContext)) {
